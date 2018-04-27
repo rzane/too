@@ -1,21 +1,22 @@
 defmodule Too.Router do
   use Plug.Router
 
-  plug(Plug.Logger)
+  plug(Plug.Logger, log: :debug)
   plug(Plug.Static, at: "/assets", from: {:too, "priv/assets"})
   plug(:match)
   plug(:dispatch)
 
   get "/" do
-    index =
+    file =
       :too
       |> Application.app_dir()
       |> Path.join("priv/assets/index.html")
 
     conn
+    |> push("/assets/index.js", accept: "application/javascript")
+    |> push("/assets/index.css", accept: "text/css")
     |> put_resp_content_type("text/html")
-    |> push!("/assets/index.css")
-    |> send_file(200, index)
+    |> send_file(200, file)
   end
 
   get "/check" do

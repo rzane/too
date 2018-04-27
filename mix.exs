@@ -7,7 +7,8 @@ defmodule Too.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: [test: "test --no-start"]
     ]
   end
 
@@ -23,7 +24,8 @@ defmodule Too.MixProject do
   defp deps do
     [
       {:plug, "~> 1.5"},
-      {:cowboy, "~> 2.3.0"}
+      {:cowboy, "~> 2.3.0"},
+      {:kadabra, "~> 0.4.0"}
     ]
   end
 end
