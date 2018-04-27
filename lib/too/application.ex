@@ -9,8 +9,6 @@ defmodule Too.Application do
     certfile = priv_file("server.pem")
     keyfile = priv_file("server.key")
 
-    IO.puts(keyfile)
-
     unless File.exists?(keyfile) do
       raise """
       No SSL key/cert found. Please run the following command:

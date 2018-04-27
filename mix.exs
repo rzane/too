@@ -22,7 +22,8 @@ defmodule Too.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug, "~> 1.5"}
+      {:plug, "~> 1.5"},
+      {:cowboy, "~> 2.3.0"}
     ]
   end
 end
