@@ -1,1 +1,1 @@
-document.body.innerHTML = 'Loaded!'
+console.log('JavaScript is loaded!');

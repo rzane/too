@@ -24,12 +24,15 @@ defmodule Too.Application do
       {Plug.Adapters.Cowboy2,
        scheme: :https,
        plug: Too.Router,
-       options: [port: 4443, certfile: certfile, keyfile: keyfile]}
+       options: [port: 4000, certfile: certfile, keyfile: keyfile]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Too.Supervisor]
+
+    IO.puts("Starting server at https://localhost:4000")
+
     Supervisor.start_link(children, opts)
   end
 
